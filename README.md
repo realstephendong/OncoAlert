@@ -2,7 +2,7 @@ HOW TO USE:
 --------------------------------------------------------------
 Please ensure you install all required dependencies prior to using this program.
 --------------------------------------------------------------
-The "assets" folder for running main.py. main.py is a python file that trains the ML model with photos in the train folder. It will then iterate through the validate folder which contains a bunch of randomized test images to test itself which will provide an accuracy score as well as a confusion matrix graph. 
+The "assets" folder is used for running main.py. main.py is a python file that trains the ML model with photos in the train folder. It will then iterate through the validate folder which contains a bunch of randomized test images to test itself which will provide an accuracy score as well as a confusion matrix graph. 
 
 To use the program, upload different categories of images as different folder under the "train" folder. These images will be used to train the model into understanding the features of each category. The folder should already have empty folders that serve as an example of what this process may look like when its finished. Under each of these category folders, you may upload anything that is similar to the category. For example, the "dog" folder should contain pictures of dogs. 
 
