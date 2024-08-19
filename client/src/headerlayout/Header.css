@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+
+body {
+  font-family: 'Lustria', serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #363535;
+  padding: 0px 15px;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Lustria', serif; /* Apply font to the header specifically */
+  margin-bottom: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  padding-left: 200px;
+}
+
+.logo img {
+  height: 150px;
+  margin-right: 5px;
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  padding-right: 150px;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 25px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #578d57;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  border-bottom: 2px solid #75b875;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    padding-right: 0;
+  }
+
+  .nav-link {
+    margin: 10px 0;
+  }
+}

@@ -1,0 +1,82 @@
+/* About.css */
+
+#about {
+  text-align: center;
+  padding: 40px 20px; 
+  background-color: #ffffff;
+  color: white; /* Ensure white background */
+  height: auto; 
+}
+
+.about-footer {
+  color: white;
+  background-color: #ffffff; /* Ensure white background for the footer */
+}
+
+#about h2 {
+  color: #1b7220;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold; 
+}
+
+#about h3 {
+  color: #1b7220;
+  font-size: 1.8rem;  
+  margin-bottom: 15px;
+  font-weight: normal; 
+}
+
+#about p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0 auto; 
+  max-width: 800px; 
+}
+
+#about .team-list {
+  padding: 0;
+  margin: 20px 0;
+  text-align: center;
+}
+
+#about .team-list a {
+  color: #333;
+  text-decoration: none;
+  display: block; 
+}
+
+#about .team-list li {
+  display: inline-block;
+  margin: 0 1.5rem; 
+}
+
+#about .learn-more-link {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold; 
+}
+
+#about .learn-more-link:hover,
+#about .contact-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  #about h2 {
+    font-size: 2rem;
+  }
+
+  #about h3 {
+    font-size: 1.5rem;
+  }
+
+  #about p {
+    font-size: 1rem;
+  }
+
+  #about .team-list li {
+    margin: 0 0.5rem; 
+  }
+}
