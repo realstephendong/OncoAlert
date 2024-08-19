@@ -6,7 +6,7 @@ The "assets" folder is used for running main.py. main.py is a Python file that t
 
 To use the program, upload different categories of images as different folders under the "train" folder. These images will be used to train the model to understand the features of each category. The folder should already have empty folders that serve as an example of what this process may look like when it's finished. Under each of these category folders, you may upload anything similar to the category. For example, the "dog" folder should contain pictures of dogs. 
 
-The validate folder should contain category folders that contain identical names to the folders you created under assets/train. However, these folders should be examples that are different from the ones chosen in  assets/train, allowing the model to test itself. 
+The validate folder should contain category folders that contain identical names to the folders you created under assets/train. However, these folders should only include examples that are different from the ones chosen in  assets/train, allowing the model to test itself. 
 
 The "assets1" folder is used for running server.py, which is the backend flask server used to connect the front-end functionality. You'll notice that the assets1 folder also contains a train and validate folder. In the train folder, follow the same process described for the "assets" folder. However, leave the validate folder empty as the files the user will upload in the front will be uploaded into assets1/validate/user for the program to use. 
 
