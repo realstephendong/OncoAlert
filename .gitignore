@@ -1,0 +1,4 @@
+backend/venv
+assets
+backend/main.py
+client/node_modules

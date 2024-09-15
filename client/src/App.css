@@ -119,6 +119,11 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.button {
+  margin-top: 50px;
+  padding: 18px 0 20px 0;
+}
+
 /* Button Container */
 .button-container {
   display: flex;

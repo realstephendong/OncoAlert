@@ -12,13 +12,15 @@
 }
 
 .info-description-container {
-  width: 1120px;
-  height: 90px; 
-  margin: 0 auto 30px;
+  width: 100%; 
+  margin: 0px;
 }
 
 .info-description {
-  margin: 0 0 30px;
   font-size: 1.2rem;
   color: #333;
+}
+
+#knowmore {
+  margin-top: 10px;
 }

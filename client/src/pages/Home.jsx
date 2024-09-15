@@ -17,7 +17,7 @@ function Home() {
             Our innovative cancer detection system utilizes cutting-edge technology to provide accurate and timely diagnosis, improving treatment outcomes and saving lives.
           </p>
         </div>
-        <button className="button" onClick={() => navigate('/about')}>
+        <button id="knowmore" className="button" onClick={() => navigate('/about')}>
           Know More 
         </button> 
       </div>

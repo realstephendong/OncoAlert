@@ -18,27 +18,63 @@ html, body {
   padding: 30px;
   border-radius: 15px;
   background-color: #ffffff;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: -10px 15px 30px rgba(0, 0, 0, 0.4);
   flex: 1;
 }
 
 .card-header, .card-footer {
   background-color: #f9f9f9;
-  padding: 30px;
+  padding: 5px;
   border-bottom: 1px solid #ddd;
   border-radius: 15px;
 }
 
 .card-body {
-  padding: 30px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-  margin-bottom: 40px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #495057;
+  font-size: 1.1rem;
 }
 
 .form-control {
-  border-radius: 7px;
+  border-radius: 5px;
+  border: 2px solid #ced4da;
+  padding: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input[type="file"] {
+  background-color: #fff;
+  border: 2px dashed #ced4da;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+input[type="file"]:hover {
+  border-color: #80bdff;
+}
+
+.text-danger {
+  font-size: 0.9rem;
+  color: #e74c3c;
 }
 
 button {
@@ -57,8 +93,13 @@ button:hover {
   background-color: #b0b0b0;
 }
 
+
+
 .alert {
-  margin-bottom: 40px;
+  color: rgb(61, 131, 73);
+  font-weight: 800;
+  font-size: 20px;
+  margin: 0 0 25px 0;
 }
 
 h1 {
@@ -95,5 +136,52 @@ footer {
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
+}
+
+#submit {
+  height: 65px;
+  width: 180px;
+  font-size: 18px;
+}
+/* ----------------------------------------- */
+
+/* Full-page overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  z-index: 9999; /* Ensure it's on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Spinner styling */
+.spinner {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disable interaction when loading */
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }

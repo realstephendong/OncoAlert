@@ -9,7 +9,9 @@ function ImageUpload() {
     message: "",
     error: "",
   });
+
   const [prediction, setPrediction] = useState("Nothing");
+  const [loading, setLoading] = useState(false); // New loading state
 
   const handleChange = (e) => {
     const file = e.target.files[0];
@@ -44,11 +46,11 @@ function ImageUpload() {
 
           document.querySelector("#imageForm").reset();
         }
-        alert("Successfully Uploaded");
+        alert("Successfully Uploaded.");
       })
       .catch((error) => {
         if (error.response && error.response.status === 401) {
-          alert("Invalid credentials");
+          alert("Invalid credentials.");
         }
       });
   };
@@ -74,13 +76,16 @@ function ImageUpload() {
   };
 
   const fetchPrediction = () => {
-    axios.get('/analyze')
+    setLoading(true); // Set loading to true when fetching starts
+    axios.get('http://127.0.0.1:5000/analyze')
       .then((response) => {
         const predictedLabel = response.data.predicted_label;
         setPrediction(predictedLabel);
+        setLoading(false); // Set loading to false once the prediction is fetched
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false); // In case of an error, also set loading to false
       });
   };
 
@@ -92,11 +97,47 @@ function ImageUpload() {
       error: "",
     });
     document.querySelector("#imageForm").reset();
+    
+    // Set the label to be nothing
+    const predictedLabel = "Nothing";
+    setPrediction(predictedLabel);
+
+    axios.get('http://127.0.0.1:5000/delete')
+    .then((response) => {
+      if (response.status === 201) {
+        setResponseMsg({
+          status: response.data.status,
+          message: response.data.message,
+          error: "",
+        });
+        setTimeout(() => {
+          setImage([]);
+          setResponseMsg({
+            status: "",
+            message: "",
+            error: "",
+          });
+        }, 100000);
+      }
+      alert("Successfully Deleted.");
+    })
+    .catch((error) => {
+      if (error.response && error.response.status === 401) {
+        alert("Invalid credentials.");
+      }
+    });
   };
 
   return (
     <div className="container py-5">
-      <div className="row">
+      {/* Overlay for loading spinner */}
+      {loading && (
+        <div className="loading-overlay">
+          <div className="spinner"></div>
+        </div>
+      )}
+
+      <div className={`row ${loading ? 'disabled' : ''}`}>
         <div className="col-lg-12">
           <form onSubmit={submitHandler} encType="multipart/form-data" id="imageForm">
             <div className="card shadow">
@@ -111,7 +152,7 @@ function ImageUpload() {
               ) : null}
               <div className="card-header">
                 <h4 className="card-title fw-bold">
-                  Concerned about your health? Upload a picture of a medical scan to begin.
+                  Concerned about your health?<br></br>Upload a picture of a medical scan to begin.
                 </h4>
                 <h3>
                   (One picture at a time)
@@ -120,7 +161,7 @@ function ImageUpload() {
 
               <div className="card-body">
                 <div className="form-group py-2">
-                  <label htmlFor="images">Images</label>
+                  <label htmlFor="images">Image Upload: </label>
                   <input
                     type="file"
                     name="image"
@@ -136,14 +177,19 @@ function ImageUpload() {
                 <button type="submit" className="btn btn-success">
                   Upload
                 </button>
-                <button href="../../../assets1/validate/user" id="remove" class="delete" onClick={clearFiles}>
+                <button
+                  type = "button"
+                  id="remove"
+                  className="delete"
+                  onClick={clearFiles}
+                >
                   Clear
                 </button>
               </div>
             </div>
           </form>
           <div>
-            <button className="button" onClick={fetchPrediction}>
+            <button id="submit" className="button" onClick={fetchPrediction} disabled={loading}>
               Analyze
             </button>
           </div>
