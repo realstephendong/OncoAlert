@@ -27,7 +27,7 @@ function ImageUpload() {
     const data = new FormData();
     data.append("files[]", image[0]);
 
-    axios.post("http://127.0.0.1:5000/upload", data)
+    axios.post("/upload", data)
       .then((response) => {
         if (response.status === 201) {
           setResponseMsg({
@@ -77,7 +77,7 @@ function ImageUpload() {
 
   const fetchPrediction = () => {
     setLoading(true); // Set loading to true when fetching starts
-    axios.get('http://127.0.0.1:5000/analyze')
+    axios.get('/analyze')
       .then((response) => {
         const predictedLabel = response.data.predicted_label;
         setPrediction(predictedLabel);
@@ -102,7 +102,7 @@ function ImageUpload() {
     const predictedLabel = "Nothing";
     setPrediction(predictedLabel);
 
-    axios.get('http://127.0.0.1:5000/delete')
+    axios.get('/delete')
     .then((response) => {
       if (response.status === 201) {
         setResponseMsg({
