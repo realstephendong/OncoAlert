@@ -20,4 +20,3 @@ Once the react and flask server are running, test the program out! In the React 
 
 Happy diagnosing with OcnoAlert!
 --------------------------------------------------------------
-Devpost Link: https://devpost.com/software/oncoalert
