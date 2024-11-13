@@ -18,5 +18,5 @@ To initiate the flask server, you will need to create a virtual environment file
 
 Once the react and flask server are running, test the program out! In the React app, navigate to the test page and upload a file. When you click upload, an alert will pop up to tell you if the upload is successful. You can check assets1/validate/user to ensure the file was properly uploaded. Once the file is uploaded, click the ANALYZE button to see your result. The app will take some time to run but will eventually update the diagnosis label to its predicted result. When you are finished, delete the uploaded file in assets1/validate/user to run the program again. 
 
-Happy diagnosing with OcnoAlert!
+Happy diagnosing with OncoAlert!
 --------------------------------------------------------------
